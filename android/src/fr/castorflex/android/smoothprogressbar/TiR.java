@@ -1,10 +1,10 @@
-package de.appwerft.smoothprogressbar;
+package fr.castorflex.android.smoothprogressbar;
 
 import org.appcelerator.titanium.util.TiRHelper;
 import org.appcelerator.titanium.util.TiRHelper.ResourceNotFoundException;
 
-public final class R {
-	public R() {
+public final class TiR {
+	public TiR() {
 	}
 
 	public static final class attr {

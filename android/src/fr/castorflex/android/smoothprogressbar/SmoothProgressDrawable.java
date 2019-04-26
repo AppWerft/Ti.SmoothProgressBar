@@ -688,13 +688,13 @@ public class SmoothProgressDrawable extends Drawable implements Animatable {
       Resources res = context.getResources();
       mInterpolator = new AccelerateInterpolator();
       if (!editMode) {
-        mSectionsCount = res.getInteger(R.integer.spb_default_sections_count);
-        mSpeed = Float.parseFloat(res.getString(R.string.spb_default_speed));
-        mReversed = res.getBoolean(R.bool.spb_default_reversed);
-        mProgressiveStartActivated = res.getBoolean(R.bool.spb_default_progressiveStart_activated);
-        mColors = new int[]{res.getColor(R.color.spb_default_color)};
-        mStrokeSeparatorLength = res.getDimensionPixelSize(R.dimen.spb_default_stroke_separator_length);
-        mStrokeWidth = res.getDimensionPixelOffset(R.dimen.spb_default_stroke_width);
+        mSectionsCount = res.getInteger(TiR.integer.spb_default_sections_count);
+        mSpeed = Float.parseFloat(res.getString(TiR.string.spb_default_speed));
+        mReversed = res.getBoolean(TiR.bool.spb_default_reversed);
+        mProgressiveStartActivated = res.getBoolean(TiR.bool.spb_default_progressiveStart_activated);
+        mColors = new int[]{res.getColor(TiR.color.spb_default_color)};
+        mStrokeSeparatorLength = res.getDimensionPixelSize(TiR.dimen.spb_default_stroke_separator_length);
+        mStrokeWidth = res.getDimensionPixelOffset(TiR.dimen.spb_default_stroke_width);
       } else {
         mSectionsCount = 4;
         mSpeed = 1f;

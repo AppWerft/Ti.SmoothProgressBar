@@ -12,6 +12,9 @@ import org.appcelerator.kroll.KrollModule;
 import org.appcelerator.kroll.annotations.Kroll;
 
 import org.appcelerator.titanium.TiApplication;
+
+import fr.castorflex.android.smoothprogressbar.SmoothProgressBar;
+
 import org.appcelerator.kroll.common.Log;
 import org.appcelerator.kroll.common.TiConfig;
 
@@ -25,7 +28,14 @@ public class SmoothprogressbarModule extends KrollModule
 	private static final boolean DBG = TiConfig.LOGD;
 
 	// You can define constants with @Kroll.constant, for example:
-	// @Kroll.constant public static final String EXTERNAL_NAME = value;
+	@Kroll.constant 
+	public static final int INTERPOLATOR_ACCELERATE = SmoothProgressBar.INTERPOLATOR_ACCELERATE;
+	@Kroll.constant 
+	public static final int INTERPOLATOR_ACCELERATEDECELERATE = SmoothProgressBar.INTERPOLATOR_ACCELERATEDECELERATE;
+	@Kroll.constant 
+	public static final int INTERPOLATOR_DECELERATE = SmoothProgressBar.INTERPOLATOR_DECELERATE;
+	@Kroll.constant 
+	public static final int INTERPOLATOR_LINEAR = SmoothProgressBar.INTERPOLATOR_LINEAR;
 
 	public SmoothprogressbarModule()
 	{
