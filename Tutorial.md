@@ -53,7 +53,28 @@ We see two red problem fields:
 Android offen reads styling/configuration as XML from res folder. 
 This properties are default values. In [MakeCustomActivity](https://github.com/castorflex/SmoothProgressBar/blob/master/sample/src/main/java/fr/castorflex/android/smoothprogressbar/sample/MakeCustomActivity.java#L157) we cann see, the example app uses setters for manipulating of properties.
 
+We copy this [res](https://github.com/castorflex/SmoothProgressBar/tree/master/sample/src/main/res) folder to `android/platform/android/`
+
+In native Android the class R contains a collection of (int) ids for referencing items in `*.xml` underneath `res`. The result of 
+
+```
+R.styleable.SmoothProgressBar_spb_color
+```
+
+is an int.
+
+In Titanium we can use this construct:
+
+```
+TiRHelper.getApplicationResource("stylable.SmoothProgressBar_spb_color");
+```
+with the same result. 
+
+_Summary: in native world we use this dot separated notation, in Titanium we use a string with similar syntax_
+
 In [applyStyle](https://github.com/castorflex/SmoothProgressBar/blob/master/library/src/main/java/fr/castorflex/android/smoothprogressbar/SmoothProgressBar.java#L121-L198) the parameters will applied. This is our entry point for module.
+
+
 
 We could use this mechanisme, but it is to complicated for end user of module. The aspected interface are properties in createView or some methods at runtime. So we come to next issue: 
 
