@@ -45,3 +45,22 @@ rm -rf ~/DesktopSmoothProgressBar
 Now we see this folder structure:
 
 <img src="https://i.imgur.com/Qt91BL4.png" width=320 />
+
+We see two red problem fields:
+
+##### Usage of R class
+
+Android offen reads styling/configuration as XML from res folder. We could use this mechanisme, but it is to complcated for end user of module. The aspected interface are properties in createView or some methods at runtime. So we come to next issue: 
+
+##### Usage of `@UiThread`
+Android apps runs in different threads. The main thread is the UIthread. If we plan to use methods for modifying colors and other parameters at runtime we have to ensure to be in UIthread. In older Titanium modules a Messenger is using, maybe the annotation helps. First the annotation will not resolved. In head of class we see `import android.support.annotation.UiThread;`. We can resolve it by adding the path to classpath and the red markers will disappears, but the behaviour at runtime of app we don't know and we have to test it.
+
+<img src="https://i.imgur.com/8hseiZT.png" width=420 />
+
+Or manuell in `.classpath`:
+
+```
+<classpathentry kind="lib" path="/Users/fuerst/Library/Android/sdk/extras/android/support/v4/android-support-v4.jar"/>
+```
+
+After this action the first issue (UIThread) seems to be resolved. 

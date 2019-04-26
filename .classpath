@@ -7,6 +7,7 @@
 	<classpathentry kind="lib" path="/Users/fuerst/Library/Application Support/Titanium/mobilesdk/osx/8.0.0.GA/android/titanium.jar"/>
 	<classpathentry kind="lib" path="/Users/fuerst/Library/Application Support/Titanium/mobilesdk/osx/8.0.0.GA/android/kroll-common.jar"/>
 	<classpathentry kind="lib" path="/Users/fuerst/Library/Application Support/Titanium/mobilesdk/osx/8.0.0.GA/android/kroll-apt.jar"/>
+<classpathentry kind="lib" path="/Users/fuerst/Library/Android/sdk/extras/android/support/v4/android-support-v4.jar"/>
 	<classpathentry kind="src" path=".apt_generated">
 		<attributes>
 			<attribute name="optional" value="true"/>
