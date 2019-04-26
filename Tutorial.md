@@ -72,7 +72,7 @@ with the same result.
 
 _Summary: in native world we use this dot separated notation, in Titanium we use a string with similar syntax_
 
-We _could_ edit the original source code, but we avoid this ugly pattern by creating a (mock) class `R` to resolve all dependencies. The R class is a static class and is a wrapper to `TiRHelper`. With this trick we can keep the original class, the only modification is the new import `import de.appwerft.smoothprogressbar.R;`
+We _could_ edit the original source code, but we avoid this ugly pattern by creating a (mock) class `TiR` to resolve all dependencies. The TiR class is a static class and is a wrapper to `TiRHelper`. With this trick we can keep the original class, the only modification is to replace `R.` with `TiR`
 
 In [applyStyle](https://github.com/castorflex/SmoothProgressBar/blob/master/library/src/main/java/fr/castorflex/android/smoothprogressbar/SmoothProgressBar.java#L121-L198) the parameters will applied. This is our entry point for module.
 

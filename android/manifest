@@ -9,7 +9,7 @@ description: smoothprogressbar
 author: Rainer Schleevoigt
 license: MIT
 copyright: Copyright (c) 2019 by Your Company
-
+respackagename: de.apperft.smoothprogressbar
 # these should not be edited
 name: smoothprogressbar
 moduleid: de.appwerft.smoothprogressbar
