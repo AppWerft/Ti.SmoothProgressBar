@@ -50,7 +50,12 @@ We see two red problem fields:
 
 ##### Usage of R class
 
-Android offen reads styling/configuration as XML from res folder. We could use this mechanisme, but it is to complcated for end user of module. The aspected interface are properties in createView or some methods at runtime. So we come to next issue: 
+Android offen reads styling/configuration as XML from res folder. 
+This properties are default values. In [MakeCustomActivity](https://github.com/castorflex/SmoothProgressBar/blob/master/sample/src/main/java/fr/castorflex/android/smoothprogressbar/sample/MakeCustomActivity.java#L157) we cann see, the example app uses setters for manipulating of properties.
+
+In [applyStyle](https://github.com/castorflex/SmoothProgressBar/blob/master/library/src/main/java/fr/castorflex/android/smoothprogressbar/SmoothProgressBar.java#L121-L198) the parameters will applied. This is our entry point for module.
+
+We could use this mechanisme, but it is to complicated for end user of module. The aspected interface are properties in createView or some methods at runtime. So we come to next issue: 
 
 ##### Usage of `@UiThread`
 Android apps runs in different threads. The main thread is the UIthread. If we plan to use methods for modifying colors and other parameters at runtime we have to ensure to be in UIthread. In older Titanium modules a Messenger is using, maybe the annotation helps. First the annotation will not resolved. In head of class we see `import android.support.annotation.UiThread;`. We can resolve it by adding the path to classpath and the red markers will disappears, but the behaviour at runtime of app we don't know and we have to test it.
@@ -60,7 +65,29 @@ Android apps runs in different threads. The main thread is the UIthread. If we p
 Or manuell in `.classpath`:
 
 ```
-<classpathentry kind="lib" path="/Users/fuerst/Library/Android/sdk/extras/android/support/v4/android-support-v4.jar"/>
+<classpathentry 
+	kind="lib" 
+	path="~/Library/Android/sdk/extras/android/support/v4/android-support-v4.jar"/>
 ```
 
 After this action the first issue (UIThread) seems to be resolved. 
+
+If the annotation makes trouble at app runtime the we have two possibilities of solution:
+
+* avoiding of setters (all properties only in constructor)
+* usage of Ti.Messenger ([sample](https://github.com/appcelerator-archive/ti.gigya/blob/master/android/src/ti/gigya/GigyaModule.java))
+
+### Constants
+
+Inspecting of head of all classes show us  which constants could make sense to export. In [SmoothProgressBar.java](blob/master/android/src/fr/castorflex/android/smoothprogressbar/SmoothProgressBar.java) we see four constants for easying. It make sense to export in module for usage in JS parameters. First we have to modify the scope of these vars from `private` to `public` in SmoothProgressBar class.
+
+```java
+@Kroll.constant 
+public static final int INTERPOLATOR_ACCELERATE = SmoothProgressBar.INTERPOLATOR_ACCELERATE;
+@Kroll.constant 
+public static final int INTERPOLATOR_ACCELERATEDECELERATE = SmoothProgressBar.INTERPOLATOR_ACCELERATEDECELERATE;
+@Kroll.constant 
+public static final int INTERPOLATOR_DECELERATE = SmoothProgressBar.INTERPOLATOR_DECELERATE;
+@Kroll.constant 
+public static final int INTERPOLATOR_LINEAR = SmoothProgressBar.INTERPOLATOR_LINEAR;
+```

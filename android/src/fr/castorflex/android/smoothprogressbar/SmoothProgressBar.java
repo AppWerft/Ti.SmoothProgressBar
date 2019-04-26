@@ -18,10 +18,11 @@ import android.widget.ProgressBar;
  */
 public class SmoothProgressBar extends ProgressBar {
 
-  private static final int INTERPOLATOR_ACCELERATE = 0;
-  private static final int INTERPOLATOR_LINEAR = 1;
-  private static final int INTERPOLATOR_ACCELERATEDECELERATE = 2;
-  private static final int INTERPOLATOR_DECELERATE = 3;
+  /* was private, now public for usage in module */	
+  public static final int INTERPOLATOR_ACCELERATE = 0;
+  public static final int INTERPOLATOR_LINEAR = 1;
+  public static final int INTERPOLATOR_ACCELERATEDECELERATE = 2;
+  public static final int INTERPOLATOR_DECELERATE = 3;
 
   public SmoothProgressBar(Context context) {
     this(context, null);
