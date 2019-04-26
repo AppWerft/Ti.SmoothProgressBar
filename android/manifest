@@ -1,0 +1,18 @@
+#
+# this is your module manifest and used by Titanium
+# during compilation, packaging, distribution, etc.
+#
+version: 1.0.0
+apiversion: 4
+architectures: arm64-v8a armeabi-v7a x86
+description: smoothprogressbar
+author: Rainer Schleevoigt
+license: MIT
+copyright: Copyright (c) 2019 by Your Company
+
+# these should not be edited
+name: smoothprogressbar
+moduleid: de.appwerft.smoothprogressbar
+guid: c4ed4b2f-6af6-42eb-a63f-17d5fdc7ba47
+platform: android
+minsdk: 8.0.0.GA
